@@ -14,7 +14,55 @@
     <div class="container">
       <div class="text-center">
         <h2>Enter your  local infection rate (per 100,000 people)</h2>
-      </div><!-- text-center>      
-    </div><!-- container>
+        
+        <form class="card p-2">
+          <div class="input-group">
+            <input id="rate" type="text" class="form-control">
+            <button onclick="return update()" class="btn btn-secondary">Go!</button>
+          </div>
+        </form>
+
+      </div><!-- text-center-->      
+    </div><!-- container-->
+
+    <div class="container">
+      <div class="text-center">
+        <h3>The likelihood that at least one person has covid is as follows:</h3>
+
+        <h1 class="return"> In a group of 2 people:     <span id="update-2">?</span>% chance</h1>  
+        <h1 class="return"> In a group of 10 people:    <span id="update-10">?</span>% chance</h1>  
+        <h1 class="return"> In a group of 30 people:    <span id="update-30">?</span>% chance</h1>  
+        <h1 class="return"> In a group of 150 people:   <span id="update-150">?</span>% chance</h1>  
+        <h1 class="return"> In a group of 500 people:   <span id="update-500">?</span>% chance</h1>  
+        <h1 class="return"> In a group of 1000 people:  <span id="update-1000">?</span>% chance</h1>  
+        <h1 class="return"> In a group of 10,000 people: <span id="update-10000">?</span>% chance</h1>  
+        <h1 class="return"> In a group of 25,000 people: <span id="update-25000">?</span>% chance</h1>  
+        
+      </div><!-- text-center-->      
+    </div><!-- container-->
+
+    <script>
+      function update(){
+
+        var text = document.getElementById("rate").value;
+        
+        document.getElementById("update-2").innerHTML = getRisk(text,2);
+        document.getElementById("update-10").innerHTML = getRisk(text,10);
+        document.getElementById("update-30").innerHTML = getRisk(text,30);
+        document.getElementById("update-150").innerHTML = getRisk(text,150);
+        document.getElementById("update-500").innerHTML = getRisk(text,500);
+        document.getElementById("update-1000").innerHTML = getRisk(text,1000);
+        document.getElementById("update-10000").innerHTML = getRisk(text,10000);
+        document.getElementById("update-25000").innerHTML = getRisk(text,25000);
+
+        return false;
+      }
+
+      function getRisk(rate,people){
+         return  ((1 - ((1 - (rate/100000))**people)) * 100).toFixed(2)
+      }
+    </script>
+    
+
   </body>
 </html>
