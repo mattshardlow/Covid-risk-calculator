@@ -10,7 +10,7 @@
 
     <title>Covid Risk Calculator</title>
   </head>
-  <body class="bg-light">
+  <body class="bg-light" style="margin:auto">
     <div class="container">
       <div class="text-center">
         <h2>Enter your local infection rate (per 100,000 people)</h2>
@@ -93,6 +93,8 @@
     <script>
       function update(){
 
+        $('.carousel').carousel(0);
+
         document.getElementById("results").style.display = "block";
 
         var text = document.getElementById("rate").value;
@@ -111,11 +113,14 @@
 
       function getRisk(rate,people){
          var risk = ((1 - ((1 - (rate/100000))**people)) * 100).toFixed(2)
-         if (risk == 0)
-           risk = "0.01"
-         else if (risk == 100)
-           risk = "99.99"
-       
+         if(rate > 0)
+         {
+           if (risk == 0)
+             risk = "0.01"
+           else if (risk == 100)
+             risk = "99.99"
+         }
+
          return risk
       }
     </script>
