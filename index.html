@@ -27,40 +27,73 @@
       </div><!-- text-center-->      
     </div><!-- container-->
 
-    <div class="container">
+    <div id="results" class="container" style="max-width: 600px; margin: auto; display:none">
       <div class="text-center">
         <h3>The likelihood that at least one person in a group has covid is as follows:</h3>
 
-        <h1 class="return"> In a group of 2 people:     <span id="update-2">?</span>% chance</h1>
-        <h3> e.g., Meeting up with a friend </h3>  
-        <br/>
-        <h1 class="return"> In a group of 10 people:    <span id="update-10">?</span>% chance</h1>  
-        <h3> e.g., Meeting up with a group of friends </h3>  
-        <br/>
-        <h1 class="return"> In a group of 30 people:    <span id="update-30">?</span>% chance</h1>  
-        <h3> e.g., Playing team sports </h3>  
-        <br/>
-        <h1 class="return"> In a group of 150 people:   <span id="update-150">?</span>% chance</h1>  
-        <h3> e.g., Going to primary school </h3>  
-        <br/>
-        <h1 class="return"> In a group of 500 people:   <span id="update-500">?</span>% chance</h1>  
-        <h3> e.g., Going to the supermarket </h3>  
-        <br/>
-        <h1 class="return"> In a group of 1000 people:  <span id="update-1000">?</span>% chance</h1>  
-        <h3> e.g., Going to secondary school </h3>  
-        <br/>
-        <h1 class="return"> In a group of 10,000 people: <span id="update-10000">?</span>% chance</h1>  
-        <h3> e.g., Going to a busy shopping centre </h3>  
-        <br/>
-        <h1 class="return"> In a group of 25,000 people: <span id="update-25000">?</span>% chance</h1>  
-        <h3> e.g., Going to a football match </h3>  
-        <br/>
-        
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+            <h1 class="return"> In a group of 2 people:     <span id="update-2">?</span>% chance</h1>
+            <h3> e.g., Meeting up with a friend </h3>  
+            </div>
+
+            <div class="carousel-item">
+            <h1 class="return"> In a group of 10 people:    <span id="update-10">?</span>% chance</h1>  
+            <h3> e.g., Meeting up with a group of friends </h3>  
+            </div>
+
+            <div class="carousel-item">
+            <h1 class="return"> In a group of 30 people:    <span id="update-30">?</span>% chance</h1>  
+            <h3> e.g., Playing team sports </h3>  
+            </div>
+
+            <div class="carousel-item">
+            <h1 class="return"> In a group of 150 people:   <span id="update-150">?</span>% chance</h1>  
+            <h3> e.g., Going to primary school </h3>  
+            </div>
+
+            <div class="carousel-item">
+            <h1 class="return"> In a group of 500 people:   <span id="update-500">?</span>% chance</h1>  
+            <h3> e.g., Going to the supermarket </h3>  
+            </div>
+
+            <div class="carousel-item">
+            <h1 class="return"> In a group of 1000 people:  <span id="update-1000">?</span>% chance</h1>  
+            <h3> e.g., Going to secondary school </h3>  
+            </div>
+
+            <div class="carousel-item">
+            <h1 class="return"> In a group of 10,000 people: <span id="update-10000">?</span>% chance</h1>  
+            <h3> e.g., Going to a busy shopping centre </h3>  
+            </div>
+
+            <div class="carousel-item">
+            <h1 class="return"> In a group of 25,000 people: <span id="update-25000">?</span>% chance</h1>  
+            <h3> e.g., Going to a football match </h3>  
+            </div>
+
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>        
       </div><!-- text-center-->      
     </div><!-- container-->
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <script>
       function update(){
+
+        document.getElementById("results").style.display = "block";
 
         var text = document.getElementById("rate").value;
         
@@ -77,7 +110,13 @@
       }
 
       function getRisk(rate,people){
-         return  ((1 - ((1 - (rate/100000))**people)) * 100).toFixed(2)
+         var risk = ((1 - ((1 - (rate/100000))**people)) * 100).toFixed(2)
+         if (risk == 0)
+           risk = "0.01"
+         else if (risk == 100)
+           risk = "99.99"
+       
+         return risk
       }
     </script>
     
