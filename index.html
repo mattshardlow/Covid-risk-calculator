@@ -13,9 +13,11 @@
   <body class="bg-light">
     <div class="container">
       <div class="text-center">
-        <h2>Enter your  local infection rate (per 100,000 people)</h2>
+        <h2>Enter your local infection rate (per 100,000 people)</h2>
+        <h4> Current infection rates: </h4>
+        <h5> England: 622.3, Scotland: 288.2, Wales: 417.8, NI: 555.2 
         
-        <form class="card p-2">
+        <form class="card p-2" style="max-width: 200px; margin: auto;">
           <div class="input-group">
             <input id="rate" type="text" class="form-control">
             <button onclick="return update()" class="btn btn-secondary">Go!</button>
@@ -27,16 +29,32 @@
 
     <div class="container">
       <div class="text-center">
-        <h3>The likelihood that at least one person has covid is as follows:</h3>
+        <h3>The likelihood that at least one person in a group has covid is as follows:</h3>
 
-        <h1 class="return"> In a group of 2 people:     <span id="update-2">?</span>% chance</h1>  
+        <h1 class="return"> In a group of 2 people:     <span id="update-2">?</span>% chance</h1>
+        <h3> e.g., Meeting up with a friend </h3>  
+        <br/>
         <h1 class="return"> In a group of 10 people:    <span id="update-10">?</span>% chance</h1>  
+        <h3> e.g., Meeting up with a group of friends </h3>  
+        <br/>
         <h1 class="return"> In a group of 30 people:    <span id="update-30">?</span>% chance</h1>  
+        <h3> e.g., Playing team sports </h3>  
+        <br/>
         <h1 class="return"> In a group of 150 people:   <span id="update-150">?</span>% chance</h1>  
+        <h3> e.g., Going to primary school </h3>  
+        <br/>
         <h1 class="return"> In a group of 500 people:   <span id="update-500">?</span>% chance</h1>  
+        <h3> e.g., Going to the supermarket </h3>  
+        <br/>
         <h1 class="return"> In a group of 1000 people:  <span id="update-1000">?</span>% chance</h1>  
+        <h3> e.g., Going to secondary school </h3>  
+        <br/>
         <h1 class="return"> In a group of 10,000 people: <span id="update-10000">?</span>% chance</h1>  
+        <h3> e.g., Going to a busy shopping centre </h3>  
+        <br/>
         <h1 class="return"> In a group of 25,000 people: <span id="update-25000">?</span>% chance</h1>  
+        <h3> e.g., Going to a football match </h3>  
+        <br/>
         
       </div><!-- text-center-->      
     </div><!-- container-->
