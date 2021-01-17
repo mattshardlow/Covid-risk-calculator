@@ -15,7 +15,7 @@
       <div class="text-center">
         <h2>Enter your local infection rate (per 100,000 people)</h2>
         <h4> Current infection rates: </h4>
-        <h5> England: 622.3, Scotland: 288.2, Wales: 417.8, NI: 555.2 
+        <h5> England: 537.9, Scotland: 249.4, Wales: 344.4, NI: 449.8 (as of 17th Jan) </h5> 
         
         <form class="card p-2" style="max-width: 200px; margin: auto;">
           <div class="input-group">
@@ -83,7 +83,30 @@
             <span class="sr-only">Next</span>
           </a>
         </div>        
-      </div><!-- text-center-->      
+      </div><!-- text-center--> 
+
+
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                About...
+              </button>
+          </div>
+
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              <p>Data taken from <a href="https://coronavirus.data.gov.uk/details/cases"> UK government dashbooard </a></p>
+              <p>Note 1. This assumes everyone with/without the virus is equally likely ot meet, which is likely not the case</p>
+              <p>Note 2. The ONS recently estimatted as many as 1 in 50 people havethe virus   (equivalent  to 2000 in 100,000), so probabilities may be higher. </p>
+              <p>Note 3. Stay at home. Wear a mask. Get the vaccine.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
     </div><!-- container-->
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
